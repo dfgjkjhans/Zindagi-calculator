@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>زندگی کیلکولیٹر</title>
+  <style>
+    body {
+      font-family: 'Noto Nastaliq Urdu', Arial, sans-serif;
+      background: linear-gradient(to right, #43cea2, #185a9d);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      color: #222;
+    }
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+      text-align: center;
+      width: 90%;
+      max-width: 400px;
+    }
+    input {
+      padding: 10px;
+      font-size: 16px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      width: 100%;
+    }
+    button {
+      padding: 10px 20px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    h2 {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>زندگی کیلکولیٹر</h2>
+    <label>پیدائش کی تاریخ:</label>
+    <input type="datetime-local" id="dob">
+    <label>وفات کی تاریخ:</label>
+    <input type="datetime-local" id="dod">
+    <button onclick="calculateLifeAge()">عمر معلوم کریں</button>
+    <h3 id="result"></h3>
+  </div>
+
+  <script>
+    function calculateLifeAge() {
+      const dobValue = document.getElementById('dob').value;
+      const dodValue = document.getElementById('dod').value;
+
+      if (!dobValue || !dodValue) {
+        document.getElementById('result').innerText = "براہ کرم دونوں تاریخیں منتخب کریں۔";
+        return;
+      }
+
+      const dob = new Date(dobValue);
+      const dod = new Date(dodValue);
+
+      if (dod < dob) {
+        document.getElementById('result').innerText = "وفات کی تاریخ پیدائش سے پہلے نہیں ہو سکتی!";
+        return;
+      }
+
+      let years = dod.getFullYear() - dob.getFullYear();
+      let months = dod.getMonth() - dob.getMonth();
+      let days = dod.getDate() - dob.getDate();
+      let hours = dod.getHours() - dob.getHours();
+      let minutes = dod.getMinutes() - dob.getMinutes();
+
+      if (minutes < 0) {
+        minutes += 60;
+        hours--;
+      }
+
+      if (hours < 0) {
+        hours += 24;
+        days--;
+      }
+
+      if (days < 0) {
+        months--;
+        const prevMonth = new Date(dod.getFullYear(), dod.getMonth(), 0);
+        days += prevMonth.getDate();
+      }
+
+      if (months < 0) {
+        years--;
+        months += 12;
+      }
+
+      document.getElementById('result').innerText =
+        `اس شخص نے ${years} سال، ${months} مہینے، ${days} دن، ${hours} گھنٹے اور ${minutes} منٹ کی زندگی گزاری۔`;
+    }
+  </script>
+</body>
+</html>
