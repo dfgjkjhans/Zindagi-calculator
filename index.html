@@ -1,19 +1,19 @@
 <!DOCTYPE html>
-<html lang="ur" dir="rtl">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>زندگی کیلکولیٹر</title>
+  <title>Life Age Calculator</title>
   <style>
     body {
-      font-family: 'Noto Nastaliq Urdu', Arial, sans-serif;
+      font-family: Arial, sans-serif;
       background: linear-gradient(to right, #43cea2, #185a9d);
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
       flex-direction: column;
-      color: #222;
+      color: #333;
     }
     .container {
       background: white;
@@ -27,7 +27,7 @@
     input {
       padding: 10px;
       font-size: 16px;
-      margin: 10px 0;
+      margin: 10px;
       border-radius: 8px;
       border: 1px solid #ccc;
       width: 100%;
@@ -46,17 +46,18 @@
     }
     h2 {
       margin-bottom: 20px;
+      color: #222;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h2>زندگی کیلکولیٹر</h2>
-    <label>پیدائش کی تاریخ:</label>
+    <h2>Life Age Calculator</h2>
+    <label>Date of Birth:</label>
     <input type="datetime-local" id="dob">
-    <label>وفات کی تاریخ:</label>
+    <label>Date of Death:</label>
     <input type="datetime-local" id="dod">
-    <button onclick="calculateLifeAge()">عمر معلوم کریں</button>
+    <button onclick="calculateLifeAge()">Calculate Life Age</button>
     <h3 id="result"></h3>
   </div>
 
@@ -66,7 +67,7 @@
       const dodValue = document.getElementById('dod').value;
 
       if (!dobValue || !dodValue) {
-        document.getElementById('result').innerText = "براہ کرم دونوں تاریخیں منتخب کریں۔";
+        document.getElementById('result').innerText = "Please select both birth and death dates!";
         return;
       }
 
@@ -74,7 +75,7 @@
       const dod = new Date(dodValue);
 
       if (dod < dob) {
-        document.getElementById('result').innerText = "وفات کی تاریخ پیدائش سے پہلے نہیں ہو سکتی!";
+        document.getElementById('result').innerText = "Death date cannot be earlier than birth date!";
         return;
       }
 
@@ -106,7 +107,7 @@
       }
 
       document.getElementById('result').innerText =
-        `اس شخص نے ${years} سال، ${months} مہینے، ${days} دن، ${hours} گھنٹے اور ${minutes} منٹ کی زندگی گزاری۔`;
+        `The person lived for ${years} years, ${months} months, ${days} days, ${hours} hours and ${minutes} minutes.`;
     }
   </script>
 </body>
