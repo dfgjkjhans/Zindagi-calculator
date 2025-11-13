@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SmartLifeTools - آسان آن لائن ٹولز جیسے ایج کیلکولیٹر، BMI کیلکولیٹر، اور مزید۔">
+  <title>SmartLifeTools | سادہ اور مفید آن لائن ٹولز</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- نیویگیشن مینو -->
+  <header>
+    <h1>🧭 SmartLifeTools</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">ہوم</a></li>
+        <li><a href="about.html">ہمارے بارے میں</a></li>
+        <li><a href="contact.html">رابطہ</a></li>
+        <li><a href="privacy.html">پرائیویسی پالیسی</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h2>خوش آمدید SmartLifeTools میں</h2>
+      <p>یہاں آپ کو ملیں گے مفید آن لائن ٹولز جیسے کہ:</p>
+      <ul>
+        <li>📅 عمر کیلکولیٹر (Age Calculator)</li>
+        <li>⚖️ BMI کیلکولیٹر (Coming Soon)</li>
+        <li>💰 Loan Calculator (Coming Soon)</li>
+      </ul>
+      <a class="btn" href="#">ابھی آزمائیں</a>
+    </section>
+  </main>
+
+  <!-- فوٹر -->
+  <footer>
+    <p>© 2025 SmartLifeTools | تمام حقوق محفوظ ہیں</p>
+    <a href="privacy.html">Privacy Policy</a> |
+    <a href="contact.html">Contact</a>
+  </footer>
+
+</body>
+</html>
